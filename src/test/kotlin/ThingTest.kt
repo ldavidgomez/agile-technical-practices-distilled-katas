@@ -23,10 +23,19 @@ class ThingTest {
         assertEquals(expected, result)
     }
 
-    @ParameterizedTest(name = "String of {0} should be buzz")
+    @ParameterizedTest(name = "String of {0} should be Buzz")
     @CsvSource("5", "10", "20")
     fun should_return_buzz_string(number: Int) {
         val expected = "Buzz"
+        val result = thing.callForAction(number)
+
+        assertEquals(expected, result)
+    }
+
+    @ParameterizedTest(name = "String of {0} should be FizzBuzz")
+    @CsvSource("15", "30", "45")
+    fun should_return_fizzbuzz_string(number: Int) {
+        val expected = "FizzBuzz"
         val result = thing.callForAction(number)
 
         assertEquals(expected, result)
