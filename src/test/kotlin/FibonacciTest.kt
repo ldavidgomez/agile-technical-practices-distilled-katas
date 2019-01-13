@@ -22,7 +22,7 @@ class FibonacciTest {
     }
 
     @Test
-    fun should_return_1_for_position_3() {
+    fun should_return_1_for_position_2() {
         val expected = 1
         val result = fibonacci.callForAction(2)
 
@@ -30,7 +30,7 @@ class FibonacciTest {
     }
 
     @Test
-    fun should_return_2_for_position_4() {
+    fun should_return_2_for_position_3() {
         val expected = 2
         val result = fibonacci.callForAction(3)
 
