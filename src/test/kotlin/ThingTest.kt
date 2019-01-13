@@ -20,4 +20,12 @@ class ThingTest {
 
         assertEquals(result, expected)
     }
+
+    @Test
+    fun should_return_4() {
+        val expected = "4"
+        val result = thing.callForAction(4)
+
+        assertEquals(result, expected)
+    }
 }
