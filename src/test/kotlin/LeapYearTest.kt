@@ -8,8 +8,16 @@ class LeapYearTest {
     @Test
     fun should_return_false() {
         val expected = false
-        val result = leapYear.callForAction(2001)
-        
+        val result = leapYear.callForAction(1)
+
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun should_return_true() {
+        val expected = true
+        val result = leapYear.callForAction(4)
+
         assertEquals(expected, result)
     }
 }
