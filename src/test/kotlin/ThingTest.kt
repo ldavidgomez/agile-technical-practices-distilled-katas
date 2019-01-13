@@ -11,6 +11,13 @@ class ThingTest {
         val result = thing.callForAction(1)
 
         assertEquals(result, expected)
+    }
 
+    @Test
+    fun should_return_2() {
+        val expected = "2"
+        val result = thing.callForAction(2)
+
+        assertEquals(result, expected)
     }
 }
