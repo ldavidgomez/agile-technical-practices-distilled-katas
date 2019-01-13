@@ -1,38 +1,23 @@
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class LeapYearTest {
 
     private val leapYear = LeapYear()
 
-    @Test
-    fun should_return_false_for_year_1() {
-        val expected = false
-        val result = leapYear.callForAction(1)
-
-        assertEquals(expected, result)
-    }
-
-    @Test
-    fun should_return_true_for_year_4() {
-        val expected = true
-        val result = leapYear.callForAction(4)
-
-        assertEquals(expected, result)
-    }
-
-    @Test
-    fun should_return_false_for_1900() {
-        val expected = false
-        val result = leapYear.callForAction(1900)
-
-        assertEquals(expected, result)
-    }
-
-    @Test
-    fun should_return_false_for_2000() {
-        val expected = true
-        val result = leapYear.callForAction(2000)
+    @ParameterizedTest(name = "Boolean of {0} should be {1}")
+    @CsvSource(
+        "1, false",
+        "4, true",
+        "100, false,",
+        "400, true",
+        "2001, false",
+        "1996, true",
+        "1900, false",
+        "2000, true")
+    fun should_return_true_for_leap_year_else_false(year: Int, expected: Boolean) {
+        val result = leapYear.callForAction(year)
 
         assertEquals(expected, result)
     }
