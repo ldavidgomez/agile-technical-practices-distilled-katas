@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
@@ -12,14 +11,15 @@ class ThingTest {
     fun should_return_non_fizzbuzz_string (number: Int, expected: String) {
         val result = thing.callForAction(number)
 
-        assertEquals(result, expected)
+        assertEquals(expected, result)
     }
 
-    @Test
-    fun should_return_fizz_string() {
+    @ParameterizedTest(name = "String of {0} should be fizz")
+    @CsvSource("3", "6", "9")
+    fun should_return_fizz_string(number: Int) {
         val expected = "fizz"
-        val result = thing.callForAction(3)
+        val result = thing.callForAction(number)
 
-        assertEquals(result, expected)
+        assertEquals(expected, result)
     }
 }
