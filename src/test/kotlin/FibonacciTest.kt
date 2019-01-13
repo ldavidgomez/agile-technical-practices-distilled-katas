@@ -36,4 +36,12 @@ class FibonacciTest {
 
         assertEquals(expected, result)
     }
+
+    @Test
+    fun should_return_21_for_position_8() {
+        val expected = 21
+        val result = fibonacci.callForAction(8)
+
+        assertEquals(expected, result)
+    }
 }
