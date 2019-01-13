@@ -14,10 +14,10 @@ class ThingTest {
         assertEquals(expected, result)
     }
 
-    @ParameterizedTest(name = "String of {0} should be fizz")
+    @ParameterizedTest(name = "String of {0} should be Fizz")
     @CsvSource("3", "6", "9")
     fun should_return_fizz_string(number: Int) {
-        val expected = "fizz"
+        val expected = "Fizz"
         val result = thing.callForAction(number)
 
         assertEquals(expected, result)
