@@ -21,5 +21,19 @@ class LeapYearTest {
         assertEquals(expected, result)
     }
 
+    @Test
+    fun should_return_false_for_1900() {
+        val expected = false
+        val result = leapYear.callForAction(1900)
 
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun should_return_false_for_2000() {
+        val expected = true
+        val result = leapYear.callForAction(2000)
+
+        assertEquals(expected, result)
+    }
 }
