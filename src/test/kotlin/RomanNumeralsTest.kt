@@ -22,8 +22,19 @@ class RomanNumeralsTest {
     fun should_return_roman_unit_when_receive_arabic_unit(arabicNumber: Int, romanNumber: String) {
         val result = romanNumerals.callForAction(arabicNumber)
 
-        //then
         assertEquals(romanNumber, result)
+    }
+
+    @Test
+    fun should_return_X_when_receive_10() {
+        //given
+        val arabic = 10
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("X", result)
     }
 
 }
