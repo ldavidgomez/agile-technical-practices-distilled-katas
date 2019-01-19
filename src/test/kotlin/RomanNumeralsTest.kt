@@ -36,40 +36,5 @@ class RomanNumeralsTest {
         assertEquals(romanNumber, result)
     }
 
-    @Test
-    fun should_return_X_when_receive_10() {
-        //given
-        val arabic = 10
-
-        //when
-        val result = romanNumerals.callForAction(arabic)
-
-        //then
-        assertEquals("X", result)
-    }
-
-    @Test
-    fun should_return_XI_when_receive_11() {
-        //given
-        val arabic = 11
-
-        //when
-        val result = romanNumerals.callForAction(arabic)
-
-        //then
-        assertEquals("XI", result)
-    }
-
-    @Test
-    fun should_return_XII_when_receive_12() {
-        //given
-        val arabic = 12
-
-        //when
-        val result = romanNumerals.callForAction(arabic)
-
-        //then
-        assertEquals("XII", result)
-    }
 
 }
