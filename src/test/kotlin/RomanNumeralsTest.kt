@@ -44,36 +44,15 @@ class RomanNumeralsTest {
         "155, CLV",
         "300, CCC",
         "500, D",
-        "900, CM"
+        "900, CM",
+        "846, DCCCXLVI",
+        "1999, MCMXCIX",
+        "2008, MMVIII"
     )
     fun should_return_roman_unit_when_receive_arabic_unit(arabicNumber: Int, romanNumber: String) {
         val result = romanNumerals.callForAction(arabicNumber)
 
         assertEquals(romanNumber, result)
-    }
-
-    @Test
-    fun should_return_DCCCXLVI_when_receive_846() {
-        //given
-        val arabic = 846
-
-        //when
-        val result = romanNumerals.callForAction(arabic)
-
-        //then
-        assertEquals("DCCCXLVI", result)
-    }
-
-    @Test
-    fun should_return_MCMXCIXwhen_receive_1999() {
-        //given
-        val arabic = 1999
-
-        //when
-        val result = romanNumerals.callForAction(arabic)
-
-        //then
-        assertEquals("MCMXCIX", result)
     }
 
 }
