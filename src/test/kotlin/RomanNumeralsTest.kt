@@ -52,4 +52,28 @@ class RomanNumeralsTest {
         assertEquals(romanNumber, result)
     }
 
+    @Test
+    fun should_return_DCCCXLVI_when_receive_846() {
+        //given
+        val arabic = 846
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("DCCCXLVI", result)
+    }
+
+    @Test
+    fun should_return_MCMXCIXwhen_receive_1999() {
+        //given
+        val arabic = 1999
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("MCMXCIX", result)
+    }
+
 }
