@@ -13,7 +13,7 @@ class RomanNumerals {
                 0 -> ""
                 else -> romans[index][c.toString().toInt() - 1]
             }
-        }.joinToString("")
+        }.reversed().joinToString("")
 
     }
 }
