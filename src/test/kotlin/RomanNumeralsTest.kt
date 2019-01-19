@@ -49,4 +49,16 @@ class RomanNumeralsTest {
         assertEquals("XI", result)
     }
 
+    @Test
+    fun should_return_XII_when_receive_12() {
+        //given
+        val arabic = 12
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("XII", result)
+    }
+
 }
