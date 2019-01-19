@@ -57,4 +57,28 @@ class RomanNumeralsTest {
         assertEquals("C", result)
     }
 
+    @Test
+    fun should_return_CI_when_receive_101() {
+        //given
+        val arabic = 101
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("CI", result)
+    }
+
+    @Test
+    fun should_return_CLV_when_receive_155() {
+        //given
+        val arabic = 155
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("CLV", result)
+    }
+
 }
