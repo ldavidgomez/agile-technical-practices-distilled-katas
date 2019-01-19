@@ -28,7 +28,16 @@ class RomanNumeralsTest {
         "17, XVII",
         "18, XVIII",
         "19, XIX",
-        "20, XX"
+        "20, XX",
+        "25, XXV",
+        "30, XXX",
+        "40, XL",
+        "50, L",
+        "60, LX",
+        "70, LXX",
+        "80, LXXX",
+        "90, XC",
+        "99, XCIX"
     )
     fun should_return_roman_unit_when_receive_arabic_unit(arabicNumber: Int, romanNumber: String) {
         val result = romanNumerals.callForAction(arabicNumber)
@@ -36,5 +45,16 @@ class RomanNumeralsTest {
         assertEquals(romanNumber, result)
     }
 
+    @Test
+    fun should_return_C_when_receive_100() {
+        //given
+        val arabic = 100
+
+        //when
+        val result = romanNumerals.callForAction(arabic)
+
+        //then
+        assertEquals("C", result)
+    }
 
 }
