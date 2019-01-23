@@ -1,3 +1,5 @@
+# Katas from "Agile technical practices distilled" book
+
 * Fizz Buzz Kata
 * Leap year kata
 * Fibonacci kata
