@@ -12,7 +12,7 @@ class PrimeFactorsTest {
     @ParameterizedTest
     @MethodSource("generateData")
     fun should_return_prime_factor_when_receive_a_number(number: Int, expected: ArrayList<Int>) {
-        val result = primeFactors.callForAction(2)
+        val result = primeFactors.callForAction(number)
         assertEquals(expected, result)
     }
 
@@ -20,7 +20,7 @@ class PrimeFactorsTest {
         @JvmStatic
         fun generateData(): Stream<Arguments> {
             return Stream.of(
-                Arguments.of(2, arrayListOf(2)),
+                Arguments.of(12, arrayListOf(2)),
                 Arguments.of(3, arrayListOf(3)),
                 Arguments.of(4, arrayListOf(2, 2))
             )
