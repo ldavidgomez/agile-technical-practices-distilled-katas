@@ -1,20 +1,16 @@
 class PrimeFactors {
 
-    fun callForAction(number: Int): ArrayList<Int> {
+    fun callForAction(number: Int): List<Int> {
 
         getPrimeFactors(number)
 
         return arrayListOf(number)
     }
 
-    private fun getPrimeFactors(number: Int): ArrayList<Int> {
-        val primes = ArrayList<Int>()
-        for (i in number.minus(1) ..1) {
-            if(i.rem(number) == 0) {
-                primes.add(i)
-                getPrimeFactors(i -1 )
-                println(i)
-            }
+    private fun getPrimeFactors(number: Int): List<Int> {
+        val primes = emptyList<Int>()
+        for (i in 1 .. number) {
+
         }
         return primes
     }
