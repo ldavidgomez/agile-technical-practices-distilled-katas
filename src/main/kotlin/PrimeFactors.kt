@@ -2,17 +2,29 @@ class PrimeFactors {
 
     fun callForAction(number: Int): List<Int> {
 
-        getPrimeFactors(number)
+        return getPrimeFactors(number)
 
-        return arrayListOf(number)
     }
 
     private fun getPrimeFactors(number: Int): List<Int> {
-        val primes = emptyList<Int>()
-        for (i in 1 .. number) {
+        if (number < 2) return emptyList()
 
+        val primeFactors = arrayListOf<Int>()
+        var remainder = number
+        var i = 2
+        while (i <= remainder / i) {
+            while (remainder % i == 0) {
+                primeFactors.add(i)
+                remainder /= i
+            }
+
+            i++
         }
-        return primes
+
+        if (remainder > 1)
+            primeFactors.add(remainder)
+
+        return primeFactors
     }
 
 }
