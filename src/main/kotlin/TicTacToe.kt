@@ -3,12 +3,27 @@ import java.awt.Point
 class TicTacToe {
 
     fun callForAction(player: String, point: Point): Match {
+        val initBoard = arrayOf(arrayOf("","",""), arrayOf("","",""), arrayOf("","",""))
 
-        return Match()
+        setPointOnBoard(player, point, initBoard)
+
+        return Match(initBoard, ResultEnum.NO_RESULT)
+    }
+
+    private fun setPointOnBoard(player: String, point: Point, board: Array<Array<String>>): Match {
+        for (row in 0..2) {
+            for (col in 0..2 ) {
+                val currentPoint = Point(row, col)
+                if(point.equals(currentPoint) && board[row][col] == "")
+                    board[row][col] = player
+            }
+        }
+
+        return Match(board, ResultEnum.NO_RESULT)
     }
 }
 
-data class Match(val board: Array<String> = emptyArray(), val result: ResultEnum = ResultEnum.NO_RESULT) {
+data class Match(val board: Array<Array<String>> = arrayOf(arrayOf("","",""), arrayOf("","",""), arrayOf("","","")), val result: ResultEnum = ResultEnum.NO_RESULT) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -16,7 +31,7 @@ data class Match(val board: Array<String> = emptyArray(), val result: ResultEnum
 
         other as Match
 
-        if (!board.contentEquals(other.board)) return false
+        if (!board.contentDeepEquals(other.board)) return false
         if (result != other.result) return false
 
         return true
