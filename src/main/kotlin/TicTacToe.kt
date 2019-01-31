@@ -2,12 +2,11 @@ import java.awt.Point
 
 class TicTacToe {
 
-    fun callForAction(player: String, point: Point): Match {
-        val initBoard = arrayOf(arrayOf("","",""), arrayOf("","",""), arrayOf("","",""))
+    fun callForAction(player: String, point: Point, currentBoard: Array<Array<String>>): Match {
 
-        setPointOnBoard(player, point, initBoard)
+        setPointOnBoard(player, point, currentBoard)
 
-        return Match(initBoard, ResultEnum.NO_RESULT)
+        return Match(currentBoard, ResultEnum.NO_RESULT)
     }
 
     private fun setPointOnBoard(player: String, point: Point, board: Array<Array<String>>): Match {
