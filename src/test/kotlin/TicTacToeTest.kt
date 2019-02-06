@@ -100,4 +100,26 @@ internal class TicTacToeTest{
         assertEquals(expected, result)
     }
 
+    @Test
+    fun should_return_correct_board_when_send_several_actions_with_draw_result() {
+        //given
+        val firstLine = arrayOf("O","X","")
+        val secondLine = arrayOf("","X","X")
+        val thirdLine = arrayOf("","O","O")
+        val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
+
+        val expected = Match(expectedBoard, ResultEnum.DRAW)
+
+        //when
+        val action1 = ticTacToe.callForAction("O", Point(0, 0), board)
+        val action2 = ticTacToe.callForAction("X", Point(1,0), action1.board)
+        val action3 = ticTacToe.callForAction("X", Point(1, 1), action2.board)
+        val action4 = ticTacToe.callForAction("X", Point(2, 1), action3.board)
+        val action5 = ticTacToe.callForAction("O", Point(2, 2), action4.board)
+        val result = ticTacToe.callForAction("O", Point(1, 2), action5.board)
+
+        //then
+        assertEquals(expected, result)
+    }
+
 }
