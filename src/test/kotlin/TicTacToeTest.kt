@@ -27,7 +27,7 @@ internal class TicTacToeTest{
         val thirdLine = arrayOf("","","")
         val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
 
-        val expected = Match(expectedBoard, ResultEnum.DRAW)
+        val expected = Match(expectedBoard, ResultEnum.NONE)
 
         //when
         val result = ticTacToe.callForAction(player, point, board)
@@ -47,7 +47,7 @@ internal class TicTacToeTest{
         val thirdLine = arrayOf("","","")
         val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
 
-        val expected = Match(expectedBoard, ResultEnum.DRAW)
+        val expected = Match(expectedBoard, ResultEnum.NONE)
 
         //when
         val result = ticTacToe.callForAction(player, point, board)
@@ -108,7 +108,7 @@ internal class TicTacToeTest{
         val thirdLine = arrayOf("","O","O")
         val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
 
-        val expected = Match(expectedBoard, ResultEnum.DRAW)
+        val expected = Match(expectedBoard, ResultEnum.NONE)
 
         //when
         val action1 = ticTacToe.callForAction("O", Point(0, 0), board)
@@ -130,7 +130,7 @@ internal class TicTacToeTest{
         val thirdLine = arrayOf("","O","O")
         val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
 
-        val expected = Match(expectedBoard, ResultEnum.DRAW)
+        val expected = Match(expectedBoard, ResultEnum.NONE)
 
         //when
         val action1 = ticTacToe.callForAction("X", Point(1, 0), board)
@@ -152,7 +152,7 @@ internal class TicTacToeTest{
         val thirdLine = arrayOf("","O","O")
         val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
 
-        val expected = Match(expectedBoard, ResultEnum.DRAW)
+        val expected = Match(expectedBoard, ResultEnum.NONE)
 
         //when
         val action1 = ticTacToe.callForAction("X", Point(3, 0), board)
@@ -161,6 +161,31 @@ internal class TicTacToeTest{
         val action4 = ticTacToe.callForAction("X", Point(2, 1), action3.board)
         val action5 = ticTacToe.callForAction("O", Point(2, 2), action4.board)
         val result = ticTacToe.callForAction("O", Point(1, 2), action5.board)
+
+        //then
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun should_return_correct_board_and_correct_resutl_when_send_draw_actions() {
+        //given
+        val firstLine = arrayOf("O","X","O")
+        val secondLine = arrayOf("O","X","X")
+        val thirdLine = arrayOf("X","O","O")
+        val expectedBoard = arrayOf(firstLine, secondLine, thirdLine)
+
+        val expected = Match(expectedBoard, ResultEnum.DRAW)
+
+        //when
+        val action1 = ticTacToe.callForAction("O", Point(0, 0), board)
+        val action2 = ticTacToe.callForAction("X", Point(1,0), action1.board)
+        val action3 = ticTacToe.callForAction("O", Point(2, 0), action2.board)
+        val action4 = ticTacToe.callForAction("O", Point(0, 1), action3.board)
+        val action5 = ticTacToe.callForAction("X", Point(1, 1), action4.board)
+        val action6 = ticTacToe.callForAction("X", Point(2, 1), action5.board)
+        val action7 = ticTacToe.callForAction("X", Point(0, 2), action6.board)
+        val action8 = ticTacToe.callForAction("O", Point(1, 2), action7.board)
+        val result = ticTacToe.callForAction("O", Point(2, 2), action8.board)
 
         //then
         assertEquals(expected, result)
