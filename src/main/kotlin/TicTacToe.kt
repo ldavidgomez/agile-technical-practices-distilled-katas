@@ -14,7 +14,6 @@ private val winCombos = arrayOf(
 class TicTacToe {
 
     fun callForAction(player: String, point: Point, currentBoard: Array<Array<String>>): Match {
-
         val board = setPointOnBoard(player, point, currentBoard)
         val result = setResult(board)
 
@@ -36,13 +35,13 @@ class TicTacToe {
     private fun setResult(board: Array<Array<String>>): ResultEnum {
 
         for (row in winCombos) {
-            val a = row[0]
-            val b = row[1]
-            val c = row[2]
-            if (!board[a.y][a.x].isEmpty()) {
-                if (board[a.y][a.x] == board[b.y][b.x]) {
-                    if (board[a.y][a.x] == board[c.y][c.x]) {
-                        return getWinner((board[a.y][a.x]))
+            val row1 = row[0]
+            val row2 = row[1]
+            val row3 = row[2]
+            if (!board[row1.y][row1.x].isEmpty()) {
+                if (board[row1.y][row1.x] == board[row2.y][row2.x]) {
+                    if (board[row1.y][row1.x] == board[row3.y][row3.x]) {
+                        return getWinner((board[row1.y][row1.x]))
                     }
                 }
             }
