@@ -47,13 +47,24 @@ class TicTacToe {
                 }
             }
         }
+
+        for (row in winCombos) {
+            val a = row[0]
+            val b = row[1]
+            val c = row[2]
+            if (board[a.y][a.x].isNullOrEmpty()) {
+                return ResultEnum.NONE
+            }
+        }
+
         return ResultEnum.DRAW
     }
 
-    private fun getWinner(resutl: String): ResultEnum {
-        return when(resutl) {
+    private fun getWinner(result: String): ResultEnum {
+        return when(result) {
             "X" -> ResultEnum.WIN_X
             "O" -> ResultEnum.WIN_O
+            "" -> ResultEnum.NONE
             else -> ResultEnum.DRAW
         }
     }
@@ -83,5 +94,6 @@ data class Match(val board: Array<Array<String>> = arrayOf(arrayOf("","",""), ar
 enum class ResultEnum{
     WIN_X,
     WIN_O,
-    DRAW
+    DRAW,
+    NONE
 }
