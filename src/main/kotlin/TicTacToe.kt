@@ -1,27 +1,28 @@
 import Enums.ResultEnum
 import java.awt.Point
 
-private val winCombos = arrayOf(
-    arrayOf(Point(0, 0), Point(1, 0), Point(2, 0)),
-    arrayOf(Point(0, 1), Point(1, 1), Point(2, 1)),
-    arrayOf(Point(0, 2), Point(1, 2), Point(2, 2)),
-    arrayOf(Point(0, 0), Point(0, 1), Point(0, 2)),
-    arrayOf(Point(1, 0), Point(1, 1), Point(1, 2)),
-    arrayOf(Point(2, 0), Point(2, 1), Point(2, 2)),
-    arrayOf(Point(0, 0), Point(1, 1), Point(2, 2)),
-    arrayOf(Point(2, 0), Point(1, 1), Point(0, 2))
-)
 
 class TicTacToe {
 
+    private val winCombos = arrayOf(
+        arrayOf(Point(0, 0), Point(1, 0), Point(2, 0)),
+        arrayOf(Point(0, 1), Point(1, 1), Point(2, 1)),
+        arrayOf(Point(0, 2), Point(1, 2), Point(2, 2)),
+        arrayOf(Point(0, 0), Point(0, 1), Point(0, 2)),
+        arrayOf(Point(1, 0), Point(1, 1), Point(1, 2)),
+        arrayOf(Point(2, 0), Point(2, 1), Point(2, 2)),
+        arrayOf(Point(0, 0), Point(1, 1), Point(2, 2)),
+        arrayOf(Point(2, 0), Point(1, 1), Point(0, 2))
+    )
+
     fun callForAction(player: String, point: Point, currentBoard: Array<Array<String>>): Match {
-        val board = setPointOnBoard(player, point, currentBoard)
-        val result = setResult(board)
+        val board = doMovements(player, point, currentBoard)
+        val result = calculateResult(board)
 
         return Match(board, result)
     }
 
-    private fun setPointOnBoard(player: String, point: Point, board: Array<Array<String>>): Array<Array<String>> {
+    private fun doMovements(player: String, point: Point, board: Array<Array<String>>): Array<Array<String>> {
         for (row in 0..2) {
             for (col in 0..2) {
                 val currentPoint = Point(row, col)
@@ -33,7 +34,7 @@ class TicTacToe {
         return board
     }
 
-    private fun setResult(board: Array<Array<String>>): ResultEnum {
+    private fun calculateResult(board: Array<Array<String>>): ResultEnum {
 
         for (row in winCombos) {
             val row1 = row[0]
