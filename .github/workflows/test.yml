@@ -18,7 +18,6 @@ jobs:
         echo ${GITHUB_PACKAGE_REGISTRY_TOKEN}
         echo ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
         echo ${GITHUB_TOKEN}
-        echo ${{ secret.GITHUB_TOKEN }}
     - name: Push
       run: |
         docker login docker.pkg.github.com --username ldavidgomez --password "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
