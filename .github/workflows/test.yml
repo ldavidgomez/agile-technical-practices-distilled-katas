@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        echo ${GITHUB_PACKAGE_REGISTRY_TOKEN}
+        echo ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
+        echo ${GITHUB_TOKEN}
+        echo ${secret.GITHUB_TOKEN}
+    - name: Push
+      run: |
+        docker login docker.pkg.github.com --username ldavidgomez --password "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
+        docker push docker.pkg.github.com/repoowner/repo_name/image_name:tag
+      env:
+        GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
