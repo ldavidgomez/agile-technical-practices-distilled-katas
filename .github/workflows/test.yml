@@ -15,6 +15,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        echo ${{ secrets.github_token }}
         echo ${GITHUB_PACKAGE_REGISTRY_TOKEN}
         echo ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
         echo ${GITHUB_TOKEN}
