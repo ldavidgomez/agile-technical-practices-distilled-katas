@@ -22,4 +22,4 @@ jobs:
     - name: Push
       run: |
         docker login docker.pkg.github.com --username ldavidgomez --password "${{ secrets.github_token }}"
-        docker push docker.pkg.github.com/repoowner/repo_name/image_name:${GITHUB.SHA}
+        docker push docker.pkg.github.com/ldavidgomez/agile-technical-practices-distilled-katas/image_name:${{GITHUB.SHA}}
